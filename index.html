@@ -8,15 +8,63 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- 自己的 css -->
+    <link rel="stylesheet" href="all.css">
+
     <title>To Do List</title>
   </head>
   <body>
-    <h1>To Do List</h1>
+    <div class="wrap container">
+      <div class="title">
+        <h3><i class="fas fa-list-ul"></i> TO DO LIST</h3>
+      </div>
+
+      <div class="content">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="task" placeholder="準備要做的事">
+          <div class="input-group-append">
+
+            <input type="button" class="btn btn-outline-secondary" value="新增">
+          </div>
+        </div>
+        <!-- <div class="line mb-3"></div> -->
+        <div class="TaskList">
+          <header class="card-header">未完成的任務</header>
+          <div class="card-body">
+            <ol class="list-group list-group-flush text-left" id="todolist">
+              <li>
+                <label class="checkbox-inline completed"><input type="checkbox" >Option 1</label>
+              </li>
+              <li>
+                <label class="checkbox-inline"><input type="checkbox">Option 2</label>
+              </li>
+              <li>
+                <label class="checkbox-inline"><input type="checkbox">Option 2</label>
+              </li>
+            </ol>
+          </div>
+          <footer class="card-footer d-flex justify-content-between">
+            <span>還有 <span id="taksCount">0</span> 筆任務</span>
+            <a href="#" id="clearAllTask">清除所有任務</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- 自己的 JS -->
+    <script src="all.js"></script>
   </body>
 </html>
