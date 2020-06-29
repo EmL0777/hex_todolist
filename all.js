@@ -50,13 +50,16 @@ function removeAll() {
 
 function deleteTask(e) {
   let target = e.target.dataset.id;
-  tasks.forEach((item, index) => {
-    if (item.id == target) {
-      tasks.splice(index, 1);
-    }
-  });
+  let action = e.target.dataset.action;
+  if (action == 'remove') {
+    tasks.forEach((item, index) => {
+      if (item.id == target) {
+        tasks.splice(index, 1);
+      }
+    });
 
-  lastTaskCount = tasks.length;
-  showTasks();
-  showTaskCount();
+    lastTaskCount = tasks.length;
+    showTasks();
+    showTaskCount();
+  }
 }
