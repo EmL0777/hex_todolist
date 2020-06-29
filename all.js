@@ -1,7 +1,9 @@
+let lastTaskCount = 0;
 const tasks = [];
 const task = document.querySelector('#task');
 const submit = document.querySelector('.submit');
 const todoList = document.querySelector('#todoList');
+const taskCount = document.querySelector('#taskCount');
 
 submit.addEventListener('click', addTask, false);
 
@@ -13,16 +15,24 @@ function addTask() {
     todo.completed = false;
     tasks.push(todo);
     showTasks();
+    showTaskCount();
   }
 }
 
 function showTasks() {
   let lists = '';
-  tasks.forEach( (todo, index) => {
+  let count = 0;
+  tasks.forEach( (todo) => {
     lists += `<li>
     <label class="checkbox-inline"><input type="checkbox" >${ todo.title }</label>
     </li>`;
+    count += 1;
   });
   todoList.innerHTML = lists;
   task.value = '';
+  lastTaskCount = count;
+}
+
+function showTaskCount() {
+  taskCount.innerHTML = lastTaskCount;
 }
