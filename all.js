@@ -4,8 +4,10 @@ const task = document.querySelector('#task');
 const submit = document.querySelector('.submit');
 const todoList = document.querySelector('#todoList');
 const taskCount = document.querySelector('#taskCount');
+const clearAllTask = document.querySelector('#clearAllTask');
 
 submit.addEventListener('click', addTask, false);
+clearAllTask.addEventListener('click', removeAll, false);
 
 function addTask() {
   if (task.value.trim() !== '') {
@@ -35,4 +37,11 @@ function showTasks() {
 
 function showTaskCount() {
   taskCount.innerHTML = lastTaskCount;
+}
+
+function removeAll() {
+  tasks.length = 0;
+  lastTaskCount = 0;
+  showTasks();
+  showTaskCount();
 }
