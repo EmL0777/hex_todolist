@@ -8,6 +8,7 @@ const clearAllTask = document.querySelector('#clearAllTask');
 
 submit.addEventListener('click', addTask, false);
 clearAllTask.addEventListener('click', removeAll, false);
+todoList.addEventListener('click', deleteTask, false);
 
 function addTask() {
   if (task.value.trim() !== '') {
@@ -23,9 +24,12 @@ function addTask() {
 
 function showTasks() {
   let lists = '';
-  tasks.forEach( (todo) => {
+  tasks.forEach((todo) => {
     lists += `<li>
-    <label class="checkbox-inline"><input type="checkbox" >${ todo.title }</label>
+    <label class="checkbox-inline" data-action="compeled" data-id="${ todo.id }"><input type="checkbox" >${ todo.title }</label>
+    <button type="button" class="close ml-auto">
+    <span class="remove" data-action="remove" data-id="${ todo.id }">&times;</span>
+    </button>
     </li>`;
   });
   todoList.innerHTML = lists;
@@ -40,6 +44,19 @@ function showTaskCount() {
 function removeAll() {
   tasks.length = 0;
   lastTaskCount = 0;
+  showTasks();
+  showTaskCount();
+}
+
+function deleteTask(e) {
+  let target = e.target.dataset.id;
+  tasks.forEach((item, index) => {
+    if (item.id == target) {
+      tasks.splice(index, 1);
+    }
+  });
+
+  lastTaskCount = tasks.length;
   showTasks();
   showTaskCount();
 }
