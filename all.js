@@ -23,16 +23,14 @@ function addTask() {
 
 function showTasks() {
   let lists = '';
-  let count = 0;
   tasks.forEach( (todo) => {
     lists += `<li>
     <label class="checkbox-inline"><input type="checkbox" >${ todo.title }</label>
     </li>`;
-    count += 1;
   });
   todoList.innerHTML = lists;
   task.value = '';
-  lastTaskCount = count;
+  lastTaskCount = tasks.length;
 }
 
 function showTaskCount() {
